@@ -1,4 +1,3 @@
-#
 #include "WindowsAudioOutput.h"
 
 void PrintAudioPlaybackDevice(LPWSTR id, LPWSTR name)
@@ -6,7 +5,7 @@ void PrintAudioPlaybackDevice(LPWSTR id, LPWSTR name)
 	printf("Audio Device: %ws\n", name);
 }
 
-int main(int argc, char* argv[])
+int _tmain(int argc, _TCHAR* argv[])
 {
 	WindowsAudioOutput *windowsAudioOutput = new WindowsAudioOutput();
 
