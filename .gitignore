@@ -24,3 +24,7 @@
 Debug/
 *.sdf
 *.opensdf
+*.sln
+*.suo
+*.vcxproj
+*.vcxproj.filters
