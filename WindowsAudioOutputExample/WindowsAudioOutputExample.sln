@@ -1,22 +1,40 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsAudioOutputExample", "WindowsAudioOutputExample.vcxproj", "{AD09E60C-3ADF-4794-9C55-084A28833074}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsAudioOutput", "..\WindowsAudioOutput\WindowsAudioOutput.vcxproj", "{9E81954E-4526-4DD1-A45B-DE58EF58ED89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{AD09E60C-3ADF-4794-9C55-084A28833074}.Debug|Win32.ActiveCfg = Debug|Win32
 		{AD09E60C-3ADF-4794-9C55-084A28833074}.Debug|Win32.Build.0 = Debug|Win32
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Release|Any CPU.ActiveCfg = Release|Win32
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{AD09E60C-3ADF-4794-9C55-084A28833074}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{AD09E60C-3ADF-4794-9C55-084A28833074}.Release|Win32.ActiveCfg = Release|Win32
 		{AD09E60C-3ADF-4794-9C55-084A28833074}.Release|Win32.Build.0 = Release|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Debug|Win32.Build.0 = Debug|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Release|Any CPU.ActiveCfg = Release|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Release|Win32.ActiveCfg = Release|Win32
 		{9E81954E-4526-4DD1-A45B-DE58EF58ED89}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection

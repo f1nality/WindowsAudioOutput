@@ -111,6 +111,23 @@ void WindowsAudioOutput::EnumerateAudioPlaybackDevices(ProcessAudioPlaybackDevic
 		
 		if (SUCCEEDED(hr))
 		{
+			LPWSTR defaultDeviceId = NULL;
+			IMMDevice *pDefaultDevice;
+
+			HRESULT hr = pEnum->GetDefaultAudioEndpoint(eRender, eMultimedia, &pDefaultDevice);
+
+			if (SUCCEEDED(hr))
+			{
+				hr = pDefaultDevice->GetId(&defaultDeviceId);
+
+				if (!SUCCEEDED(hr))
+				{
+					defaultDeviceId = NULL;
+				}
+
+				pDefaultDevice->Release();
+			}
+
 			IMMDeviceCollection *pDevices;
 			
 			hr = pEnum->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &pDevices);
@@ -148,7 +165,9 @@ void WindowsAudioOutput::EnumerateAudioPlaybackDevices(ProcessAudioPlaybackDevic
 
 									if (SUCCEEDED(hr))
 									{
-										enumerate_callback(wstrID, friendlyName.pwszVal);
+										BOOL isDefault = wcscmp(wstrID, defaultDeviceId) == 0;
+
+										enumerate_callback(wstrID, friendlyName.pwszVal, isDefault);
 										PropVariantClear(&friendlyName);
 									}
 
@@ -182,6 +201,23 @@ std::vector<WindowsAudioPlaybackDevice> WindowsAudioOutput::GetAudioPlaybackDevi
 		
 		if (SUCCEEDED(hr))
 		{
+			LPWSTR defaultDeviceId = NULL;
+			IMMDevice *pDefaultDevice;
+
+			HRESULT hr = pEnum->GetDefaultAudioEndpoint(eRender, eMultimedia, &pDefaultDevice);
+
+			if (SUCCEEDED(hr))
+			{
+				hr = pDefaultDevice->GetId(&defaultDeviceId);
+
+				if (!SUCCEEDED(hr))
+				{
+					defaultDeviceId = NULL;
+				}
+
+				pDefaultDevice->Release();
+			}
+
 			IMMDeviceCollection *pDevices;
 			
 			hr = pEnum->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &pDevices);
@@ -223,6 +259,8 @@ std::vector<WindowsAudioPlaybackDevice> WindowsAudioOutput::GetAudioPlaybackDevi
 
 										device.id = wstrID;
 										device.name = friendlyName.pwszVal;
+										device.default = wcscmp(wstrID, defaultDeviceId) == 0;
+										
 										devices.push_back(device);
 
 										PropVariantClear(&friendlyName);

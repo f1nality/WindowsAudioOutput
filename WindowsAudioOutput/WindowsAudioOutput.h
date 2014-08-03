@@ -9,7 +9,7 @@
 #include "Functiondiscoverykeys_devpkey.h"
 #include "WindowsAudioPlaybackDevice.h"
 
-typedef void (*ProcessAudioPlaybackDeviceCallback)(LPWSTR, LPWSTR);  
+typedef void (*ProcessAudioPlaybackDeviceCallback)(LPWSTR, LPWSTR, BOOL);  
 
 class WindowsAudioOutput
 {

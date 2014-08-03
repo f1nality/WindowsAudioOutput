@@ -1,20 +1,50 @@
 #include "WindowsAudioOutput.h"
+#include <iostream>
+#include <cstring>
 
-void PrintAudioPlaybackDevice(LPWSTR id, LPWSTR name)
+void PrintAudioPlaybackDevice(LPWSTR id, LPWSTR name, BOOL default)
 {
-	printf("Audio Device: %ws\n", name);
+	printf("%d %ws\n", default, name);
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
+	setlocale(LC_ALL, "Russian");
+
+	char *action;
+
+	if (argc < 2)
+	{
+		action = "list";
+	}
+	else
+	{
+		action = argv[1];
+	}
+
 	WindowsAudioOutput *windowsAudioOutput = new WindowsAudioOutput();
 
-	windowsAudioOutput->EnumerateAudioPlaybackDevices(&PrintAudioPlaybackDevice);
-	windowsAudioOutput->SetDefaultAudioPlaybackDeviceByIndex(0);
+	if (strcmp(action, "list") == 0)
+	{
+		windowsAudioOutput->EnumerateAudioPlaybackDevices(&PrintAudioPlaybackDevice);
+	}
+	else if (strcmp(action, "setdefault") == 0)
+	{
+		if (argc < 3)
+		{
+			std::cout << "ERROR:" << "No device index specified";
 
-	std::vector<WindowsAudioPlaybackDevice> devices = windowsAudioOutput->GetAudioPlaybackDevices();
+			return 0;
+		}
 
-	printf("First device: %ls\n", devices.front().name.c_str());
+		int index = atoi(argv[2]);
+		
+		windowsAudioOutput->SetDefaultAudioPlaybackDeviceByIndex(index);
+	}
+	else
+	{
+		std::cout << "ERROR:" << "Unknown command" << action;
+	}
 
 	return 0;
 }

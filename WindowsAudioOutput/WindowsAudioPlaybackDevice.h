@@ -4,4 +4,5 @@ struct WindowsAudioPlaybackDevice
 {
 	std::wstring id;
 	std::wstring name;
+	BOOL default;
 };
